@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Palete</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="header">
+
+        <div class="nav-left">
+            <a href="#" class="menu-btn"><i class="fas fa-bars"></i></a>
+        </div>
+
+        <div class="nav-logo">
+            <a href="#">CodeJam - Pallete</a>
+        </div>
+        <div class="nav-right">
+            <a href="#"><i class="fas fa-ellipsis-v"></i></div></a>
+    </header>
+    <main class="main">
+        <div class="pallete-menu">
+            <div class="pallete">
+                <ul class="pallete-list">
+                    <li class="pallete-list__item"><button id="paintBucker"><i class="fas fa-fill-drip"></i> <span
+                                class="pallete-list__text">Paint bucker (P)</span></button></li>
+                    <li class="pallete-list__item"><button id="chooseColor"><i class="fas fa-eye-dropper"></i><span
+                                class="pallete-list__text">Choose color (C)</span></button></li>
+                    <li class="pallete-list__item"><button id="move"><i class="fas fa-arrows-alt"></i><span
+                                class="pallete-list__text">Move (M)</span></button></li>
+                    <li class="pallete-list__item"><button id="transform"><i class="fas fa-exchange-alt"></i><span
+                                class="pallete-list__text">Transform (T)</span></button></li>
+                </ul>
+            </div>
+            <div class="pallete-color">
+                <div class="current">
+                    <div class="current__color color"></div>
+                    <span class="pallete-color__text">Current color</span>
+                </div>
+                <div class="prev">
+                    <div class="prev__color color"></div>
+                    <span class="pallete-color__text">Prev color</span>
+                </div>
+
+                <div class="red">
+                    <div class="red__color color"></div>
+                    <span class="pallete-color__text">red</span>
+                </div>
+                <div class="blue">
+                    <div class="blue__color color"></div>
+                    <span class="pallete-color__text">blue</span>
+                </div>
+            </div>
+        </div>
+        <div class="canvas">
+            <div class="canvas__block"></div>
+            <div class="canvas__block"></div>
+            <div class="canvas__block"></div>
+            <div class="canvas__block"></div>
+            <div class="canvas__block"></div>
+            <div class="canvas__block"></div>
+            <div class="canvas__block circle"></div>
+            <div class="canvas__block"></div>
+            <div class="canvas__block"></div>
+        </div>
+    </main>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
