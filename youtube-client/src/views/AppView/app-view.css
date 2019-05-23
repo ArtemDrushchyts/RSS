@@ -1,0 +1,77 @@
+body {
+  background-color: #343d46;
+}
+
+#input {
+  display: flex;
+  justify-content: center;
+  float: none;
+  height: 20px;
+}
+
+#search {
+  width: 30%;
+  height: 29px;
+}
+
+#cont {
+  display: flex;
+  align-items: baseline;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  transition: all 0.2s;
+  transform: scale(0.98);
+  user-select: none;
+  cursor: pointer;
+}
+
+#cont.active {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+  transform: scale(1);
+}
+
+.clip {
+  margin: 50px 15px;
+  border-radius: 15px;
+  width: 23%;
+  height: 500px;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.clip__title {
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.clip__channelTitle, .clip__publishedAt {
+  margin-left: 25px;
+}
+
+.clip__description {
+  padding: 0 6px;
+}
+
+.clip__bg {
+  height: 300px;
+}
+
+.clip__img {
+  margin-top: 10px;
+}
+
+.calendar {
+  height: 10px;
+  width: 10px;
+}
+
+.channel, .calendar {
+  font-weight: bold;
+}
