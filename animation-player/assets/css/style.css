@@ -191,3 +191,14 @@ body {
 .far {
     z-index: -2;
 }
+
+.canvas-view {
+    margin-top: 150px;
+    width: 300px;
+    height: 350px;
+    top: 10px;
+}
+
+:-webkit-full-screen {
+    background: white;
+}

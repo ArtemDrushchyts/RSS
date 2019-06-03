@@ -159,7 +159,6 @@ const drawCanvas = () => {
         if (isMouseDown) {
             ctx.lineTo(e.offsetX, e.offsetY);
             ctx.stroke();
-            console.log(`${e.offsetX},${e.offsetY}`)
             ctx.beginPath();
             ctx.arc(e.offsetX, e.offsetY, 1, 0, Math.PI * 2);
             ctx.fill();
@@ -173,14 +172,14 @@ drawCanvas();
 const btnAdd = document.getElementsByClassName('btn-addFrame')[0];
 const frameWrap = document.getElementsByClassName('canvas__wrapper')[0];
 const canvasItem = document.getElementsByClassName('canvas-addFrame__item');
-const btnDel = document.getElementsByClassName('canvas__wrapper__del');
+const btnDel = document.querySelector(`.delete-${count}`);
 const btnCopy = document.getElementsByClassName('canvas__wrapper__copy');
 
 btnAdd.addEventListener('click', () => {
     count++;
     const cnv = document.createElement('div');
     cnv.className = `canvas__wrapper__item item${count}`;
-    cnv.innerHTML = `<button class="canvas__wrapper__del"><i class="far fa-trash-alt"></i></button>
+    cnv.innerHTML = `<button class="canvas__wrapper__del delete-${count}"><i class="far fa-trash-alt"></i></button>
     <button class="canvas__wrapper__copy"><i class="far fa-copy"></i></button>`;
     frameWrap.appendChild(cnv);
     const canvasFrame = document.querySelector('.canvas-frame');
@@ -196,18 +195,59 @@ btnAdd.addEventListener('click', () => {
 
 frameWrap.addEventListener('click', e => {
     const target = e.target.parentNode.parentNode;
-
     if (e.target.matches('.canvas__wrapper__del,.fa-trash-alt')) {
+
         target.remove();
+        count -= 1;
     }
     if (e.target.matches('.canvas__wrapper__copy,.fa-copy')) {
         const clone = target.cloneNode(true);
         target.parentNode.insertBefore(clone, target.nextSibling);
+        count += 1;
     }
 });
-
+let a = 1;
+let fps = 2;
 function animate() {
     setInterval(() => {
-
-    });
+        const canvasView = document.getElementById('canvasView');
+        const source = document.getElementsByClassName('canvas');
+        const sourceCtx = canvasView.getContext('2d');
+        sourceCtx.drawImage(source[a - 1], 0, 0);
+        a += 1;
+        if (a === count + 1) {
+            a = 1;
+        }
+        setTimeout(() => {
+            sourceCtx.clearRect(0, 0, 500, 500);
+        }, 980);
+    }, 1000 / fps);
 }
+
+const start = document.getElementById('start');
+
+start.addEventListener('click', () => {
+    animate();
+});
+
+const fullScreen = document.getElementById('fullscreen');
+const canvasView = document.getElementById('canvasView');
+fullScreen.addEventListener('click', () => {
+    canvasView.requestFullscreen();
+});
+
+const addFps = document.getElementById('addFps');
+const delFpss = document.getElementById('delFpss');
+const fpsText = document.querySelector('.fps-text');
+
+addFps.addEventListener('click', () => {
+    if (fps === 24) return;
+    fps += 2;
+    fpsText.innerHTML = `${fps} FPS`;
+});
+
+delFpss.addEventListener('click', () => {
+    if (fps === 0) return;
+    fps -= 2;
+    fpsText.innerHTML = `${fps} FPS`;
+});

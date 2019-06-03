@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Palete</title>
+    <title>Animation-player</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -19,7 +19,7 @@
         </div>
 
         <div class="nav-logo">
-            <a href="#">CodeJam - Pallete</a>
+            <a href="#">Animation-player</a>
         </div>
         <div class="nav-right">
             <a href="#"><i class="fas fa-ellipsis-v"></i></div></a>
@@ -62,8 +62,7 @@
         <div class="canvas-addFrame">
             <div class="canvas__wrapper">
                 <div class="canvas__wrapper__item item1">
-                    <!-- <canvas class="canvas-addFrame__item"></canvas> -->
-                    <button class="canvas__wrapper__del"><i class="far fa-trash-alt"></i></button>
+                    <button class="canvas__wrapper__del delete-1"><i class="far fa-trash-alt"></i></button>
                     <button class="canvas__wrapper__copy"><i class="far fa-copy"></i></button>
                 </div>
             </div>
@@ -73,8 +72,12 @@
             <canvas class="canvas canvas-1"></canvas>
         </div>
         <div class="canvas-view">
-            <canvas id="canvasView" width="400" height="400"></canvas>
+            <canvas id="canvasView" width="300" height="300"></canvas>
+            <p class="fps-text">2 FPS</p>
             <button id="start">start</button>
+            <button id="fullscreen">Full screen</button>
+            <button id="addFps">+ Fps</button>
+            <button id="delFpss">- Fps</button>
         </div>
     </main>
 
