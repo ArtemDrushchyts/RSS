@@ -74,14 +74,11 @@
         <div class="canvas-view">
             <canvas id="canvasView" width="300" height="300"></canvas>
             <p class="fps-text">2 FPS</p>
-            <button id="start">start</button>
             <button id="fullscreen">Full screen</button>
-            <button id="addFps">+ Fps</button>
-            <button id="delFpss">- Fps</button>
+            <input type="range" min="2" max="24" step="2" id="fps" value="2">
         </div>
     </main>
-
-    <script src="assets/js/main.js"></script>
+    <script src="./dist/bundle.js"></script>
 </body>
 
 </html>

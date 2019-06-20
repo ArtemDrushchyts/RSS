@@ -1,7 +1,3 @@
-if (localStorage.getItem('radius') != null) {
-    const radius = localStorage.getItem('radius');
-}
-
 const paintBucker = document.getElementById('paintBucker');
 const chooseColor = document.getElementById('chooseColor');
 const move = document.getElementById('move');
@@ -207,47 +203,37 @@ frameWrap.addEventListener('click', e => {
     }
 });
 let a = 1;
-let fps = 2;
+const rangeFps = document.getElementById('fps');
+const canvasView = document.getElementById('canvasView');
+
 function animate() {
-    setInterval(() => {
-        const canvasView = document.getElementById('canvasView');
-        const source = document.getElementsByClassName('canvas');
-        const sourceCtx = canvasView.getContext('2d');
-        sourceCtx.drawImage(source[a - 1], 0, 0);
-        a += 1;
-        if (a === count + 1) {
-            a = 1;
-        }
-        setTimeout(() => {
-            sourceCtx.clearRect(0, 0, 500, 500);
-        }, 980);
-    }, 1000 / fps);
+    const source = document.getElementsByClassName('canvas');
+    const sourceCtx = canvasView.getContext('2d');
+    const fpsText = document.querySelector('.fps-text');
+    fpsText.innerHTML = `${rangeFps.value} FPS`;
+    sourceCtx.drawImage(source[a - 1], 0, 0);
+    a += 1;
+    if (a === count + 1) {
+        a = 1;
+    }
+    setTimeout(() => {
+        sourceCtx.clearRect(0, 0, 500, 500);
+    }, 980 / rangeFps.value);
 }
+let start = setInterval(animate, 1000 / rangeFps.value);
 
-const start = document.getElementById('start');
-
-start.addEventListener('click', () => {
-    animate();
-});
+function startAnimation() {
+    if (canvasView.getContext) {
+        rangeFps.addEventListener('change', () => {
+            clearInterval(start);
+            start = setInterval(animate, 1000 / rangeFps.value);
+        });
+    }
+}
+startAnimation();
 
 const fullScreen = document.getElementById('fullscreen');
-const canvasView = document.getElementById('canvasView');
+const canvasViews = document.getElementById('canvasView');
 fullScreen.addEventListener('click', () => {
-    canvasView.requestFullscreen();
-});
-
-const addFps = document.getElementById('addFps');
-const delFpss = document.getElementById('delFpss');
-const fpsText = document.querySelector('.fps-text');
-
-addFps.addEventListener('click', () => {
-    if (fps === 24) return;
-    fps += 2;
-    fpsText.innerHTML = `${fps} FPS`;
-});
-
-delFpss.addEventListener('click', () => {
-    if (fps === 0) return;
-    fps -= 2;
-    fpsText.innerHTML = `${fps} FPS`;
+    canvasViews.requestFullscreen();
 });
