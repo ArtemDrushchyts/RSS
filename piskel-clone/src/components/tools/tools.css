@@ -1,0 +1,9 @@
+.tool {
+    height: 50px;
+    width: 50px;
+    border: 2px solid black;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    margin-top: 8px;
+}
