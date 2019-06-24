@@ -1,0 +1,16 @@
+.preview {
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    margin-top: 20px;
+}
+
+.fullScreen {
+    margin: 5px;
+    width: 25px;
+    height: 25px;
+    background: url('../../images/full-size.png') no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    border: none;
+}
